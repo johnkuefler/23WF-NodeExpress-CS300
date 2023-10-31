@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cats: The Untold Story</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    h1 { color: #FF4500; }
+    .cat-img { max-width: 300px; }
+    .cat-fact { font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <h1>The Secret Lives of Cats</h1>
+
+  <img class="cat-img" src="https://placekitten.com/300/200" alt="Cute Cat">
+
+  <p class="cat-fact">Fact: Cats can make over 100 different sounds.</p>
+
+  <script>
+    const facts = [
+      "Cats have five toes on their front paws, but only four on the back paws.",
+      "A group of cats is called a clowder.",
+      "Cats can rotate their ears 180 degrees.",
+      "The world’s largest cat painting sold for over $820,000."
+    ];
+
+    document.querySelector('.cat-fact').addEventListener('click', function() {
+      this.textContent = `Fact: ${facts[Math.floor(Math.random() * facts.length)]}`;
+    });
+  </script>
+
+</body>
+</html>
