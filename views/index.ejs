@@ -1,11 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+  <%- include ./partials/header %>
+
   <body>
-    <h1><%= title %></h1>
-    <p>Content: <%= content %></p>
+    <%- include ./partials/navbar %>
+
+    <div class="container">
+      <h1><%= title %></h1>
+      <p>Content: <%= content %></p>
+
+      <% if (isRaining == true) { %>
+        <p>Oh no, it's raining, we can't trick or treat</p>
+      <% } else { %> 
+        <p>Its not raining, let's trick or treat</p>
+      <% } %> 
+
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <td>Day of week</td>
+            <td>Temp</td>
+          </tr>
+        </thead>
+        <% for (let i=0; i<dailyForecast.length; i++) { %>
+          <tr>
+           <td><%=dailyForecast[i].day %></td><td><%=dailyForecast[i].temp%></td> 
+          </tr>
+        <% } %>
+      </table>
+
+
+      <br>
+      <h2>User data</h2>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Phone</td>
+            <td>Company Name</td>
+          </tr>
+        </thead>
+        <% for (let i=0; i<userData.length; i++) { %>
+          <tr>
+           <td><%=userData[i].name %></td>
+           <td><%=userData[i].email%></td> 
+           <td><%=userData[i].phone%></td> 
+           <td><%=userData[i].company.name%></td> 
+          </tr>
+        <% } %>
+      </table>
+    </div>
+    
+
+    <%- include ./partials/scripts %>
   </body>
 </html>
